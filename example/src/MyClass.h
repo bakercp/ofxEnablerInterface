@@ -57,7 +57,7 @@ private:
     int _height;
 
     string lastMessage;
-    int  alpha;
+    int    faderAlpha;
 
 };
 

@@ -34,7 +34,7 @@ _y(y),
 _width(width),
 _height(height),
 lastMessage(""),
-alpha(0.0f)
+faderAlpha(0)
 {
 
 }
@@ -48,8 +48,8 @@ MyClass::~MyClass()
 //------------------------------------------------------------------------------
 void MyClass::draw()
 {
-    alpha -= 4;
-    if(alpha < 0) alpha = 0;
+    faderAlpha -= 4;
+    if(faderAlpha < 0) faderAlpha = 0;
     
     ofPushStyle();
     ofEnableAlphaBlending();
@@ -62,7 +62,7 @@ void MyClass::draw()
     ofSetColor(255,127);
     ofRect(0,0,_width,_height);
 
-    ofSetColor(255,255,0,alpha);
+    ofSetColor(255,255,0,faderAlpha);
     ofDrawBitmapString(lastMessage, 12,15);
     
     
@@ -75,12 +75,12 @@ void MyClass::draw()
 void MyClass::onEnabled()
 {
     lastMessage = "Enabled!";
-    alpha = 255;
+    faderAlpha = 255;
 }
 
 //------------------------------------------------------------------------------
 void MyClass::onDisabled()
 {
     lastMessage = "Disabled!";
-    alpha = 255;
+    faderAlpha = 255;
 }

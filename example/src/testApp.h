@@ -18,6 +18,6 @@ public:
     
 private:
     MyClass myClass;
-    string lastState;
-    int  alpha;
+    string  lastState;
+    int     faderAlpha;
 };

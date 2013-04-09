@@ -6,7 +6,7 @@ void testApp::setup()
     ofSetFrameRate(60);
     
     lastState = ofToString(myClass.isEnabled());
-    alpha = 0;
+    faderAlpha = 0;
     
     ofAddListener(myClass.enabled, this, &testApp::myClassEnabled);
 }
@@ -22,8 +22,8 @@ void testApp::draw()
 {
     ofBackground(0);
     
-    alpha -= 3;
-    if(alpha < 0) alpha =0;
+    faderAlpha -= 3;
+    if(faderAlpha < 0) faderAlpha =0;
     
     myClass.draw();
     
@@ -34,7 +34,7 @@ void testApp::draw()
     
     ofEnableAlphaBlending();
     
-    ofSetColor(255,255,0,alpha);
+    ofSetColor(255,255,0,faderAlpha);
     ofDrawBitmapString(lastState, 12,ofGetHeight() - 3);
     
     ofDisableAlphaBlending();
@@ -55,5 +55,5 @@ void testApp::myClassEnabled(const void* sender, bool& value) {
         lastState = "MyClass was disabled.";
     }
     
-    alpha = 255;
+    faderAlpha = 255;
 }
