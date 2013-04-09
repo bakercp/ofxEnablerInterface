@@ -44,6 +44,14 @@ void testApp::draw()
 void testApp::keyPressed(int key) {
     if(key == ' ') {
         myClass.toggleEnabled();
+    } else if(key == 'e') {
+        myClass.enable();
+    } else if(key == 'd') {
+        myClass.disable();
+    } else if(key == 'E') {
+        myClass.setEnabled(true);
+    } else if(key == 'D') {
+        myClass.setEnabled(false);
     }
 }
 
